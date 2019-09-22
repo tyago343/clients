@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900,700&display=swap');
+body{
+    margin: 0;
+}
+.component-login{
+    background-color: #e8e8e8;
+}
+.component-login .left-side{
+    width: 50%;
+    height: 100vH;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../images/login-img.svg');
+    display: inline-block;
+}
+.component-login section:last-child{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+}
+.component-login .login-box input{
+    height: 40px;
+    border: 1px solid #000000;
+    background-color: #f5f5f5;
+    display: block;
+    width: 100%;
+}
+.component-login .login-box label{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 20px;
+    display: block;
+    width: 100%;
+}
+.component-login .login-box button{
+    display: block;
+    background-color: #44a80a;
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 15px;
+    border: none;
+    border-radius: 0;
+    padding: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    width: 222px;
+    margin: 0;
+    margin-top: 25px;
+    float: right;
+}
+header{
+    padding: 15px 150px;
+}
+header button{
+    background-color: #e41b13;
+    border: 0;
+    border-radius: 5px;
+    float: right;
+    color: #ffffff;
+    font-family: Roboto;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 25px;
+}
+
+
+.pagination {
+    margin-top: 25px;
+}
+.pagination span {
+  cursor: pointer;
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+}
+
+.pagination span.active {
+  background-color: #0099FF;
+  color: white;
+  border: 1px solid #0099FF;
+}
