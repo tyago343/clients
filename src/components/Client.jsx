@@ -16,6 +16,10 @@ const Client = props => {
     useEffect(()=>{
         props.getSingleClient(props.match.params.id)
     },[props.client.name, props.match.params.id])
+    const handleClick = evt => {
+        if(evt.target.id === 'connections') setScreen(true)
+        else setScreen(false)
+    }
     return(
         <div className="container single-client">
             { props.client.name &&
@@ -26,8 +30,8 @@ const Client = props => {
                     <p>{props.client.description}</p>
                 </div>
                 <div>
-                    <span>Connections</span>
-                    <span>Statistics</span>
+                    <span id='connections' onClick={handleClick}>Connections</span>
+                    <span onClick={handleClick}>Statistics</span>
                 </div>
             </section>
             }

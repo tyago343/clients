@@ -143,6 +143,7 @@ header button{
     background-color: #e8e8e8;
     height: 200px;
     width: 100%;
+    margin-bottom: 50px;
 }
 .container.single-client .ficha > div:last-child{
     float: right;
