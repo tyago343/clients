@@ -57,11 +57,12 @@ header{
     height: 75px;
     background-color: #000000;
 }
-header .home {
+header .home a {
     font-size: 30px;
     color: #a1a1a1;
     margin-top: 17px;
     display: inline-block;
+    text-decoration: none;
 }
 header button{
     background-color: #e41b13;
@@ -98,6 +99,7 @@ header button{
     max-width: 1280px;
     margin: auto;
     margin-top: 50px;
+    box-sizing: border-box;
 }
 .container > span{
     font-size: 22px;
@@ -112,14 +114,41 @@ header button{
     border: 1px solid #000000;
     padding: 5px;
     margin-left: 30px;
+    cursor: pointer;
 }
 .container .search-box{
     float: right;
 }
 .client-list {
     list-style: none;
-    column-count: 4;
+    padding: 0;
 }
 .client-list .client{
+    margin-top: 35px;
     text-align: center;
+    width: 25%;
+    height: 150px;
+    display: inline-block;
+}
+.container.single-client .ficha img{
+    float: left;
+}
+.container.single-client .datos{
+    display: inline-block;
+    width: 500px;
+    margin-left: 50px
+}
+.container.single-client .ficha{
+    padding: 40px;
+    background-color: #e8e8e8;
+    height: 200px;
+    width: 100%;
+}
+.container.single-client .ficha > div:last-child{
+    float: right;
+}
+.container.single-client .ficha > div:last-child span{
+    padding: 3px;
+    border: 1px solid #000000;
+    margin: 5px;
 }

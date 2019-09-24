@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Header = props => {
     return (
         <header>
-            <span className="home"><Link to='/'></Link>GoldenSpear</span>
+            <span className="home"><Link to='/'>GoldenSpear</Link></span>
             <button onClick={props.logout}>Logout</button>
         </header>
     )
