@@ -24,9 +24,15 @@ const Clients = props => {
         let id = evt.target.id;
         switch(id){
             case 'back':
-                return setCurrentPage(currentPage - 1);
+                if((currentPage - 1) > 0){
+                    return setCurrentPage(currentPage - 1);
+                }
+                return setCurrentPage(pageNumbers.length - 1)
             case 'next':
-                return setCurrentPage(currentPage + 1);
+                if((currentPage + 1) < pageNumbers.length){
+                    return setCurrentPage(currentPage + 1);
+                }
+                return setCurrentPage(1)
             default:
                 return setCurrentPage(Number(id))
         }
@@ -35,8 +41,8 @@ const Clients = props => {
         <div className="container">
             <span>All Clients</span>
             <div className="pagination-buttons">
-                <span id="back" onClick={handlePaginationClick}> {"<"}- Back</span>
-                <span id="next" onClick={handlePaginationClick}>Next -></span>
+                <button id="back" onClick={handlePaginationClick}> {"<"}- Back</button>
+                <button id="next" onClick={handlePaginationClick}>Next -></button>
             </div>
             <Search />
             <ul className="client-list">
