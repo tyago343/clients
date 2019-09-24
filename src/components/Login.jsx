@@ -27,6 +27,7 @@ const Login = (props) => {
                 <div className="login-box">
                     <img src="../images/img-login.png" alt=""/>
                     <div>
+                        { props.user.message && props.user.message}
                         <label htmlFor="email">Correo electrónico</label>
                         <input name="email" type="text" value={email}  onChange={handleChange} />
                         <label htmlFor="password">Contraseña</label>

@@ -7,12 +7,15 @@ const Search = props => {
     const handleChange = evt => {
         evt.preventDefault();
         let value = evt.target.value;
-        props.search(value);
         setSearchValue(value);
     }
+    const handleClick = evt => {
+        props.search(searchValue);
+    }
     return (
-        <div>
-            <input type="text" value={searchValue} onChange={handleChange}/>
+        <div className="search-box">
+            <input type="text" value={searchValue} onChange={handleChange} />
+            <button onClick={handleClick}>Search</button>
         </div>
     )
 }

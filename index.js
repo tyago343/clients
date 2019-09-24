@@ -29,7 +29,6 @@ passport.use(new LocalStrategy({
     passwordField: 'password'
   },
   function(username, password, done) {
-      console.log('hola', username)
       let user = Users.find( user => user.email === username);
       if(!user){
           return done(null, false, { message: 'Incorrect username.' });

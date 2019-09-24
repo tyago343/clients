@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchClientsUtil } from '../redux/actions/Clients';
 import Search from './Search.jsx';
+import { Link } from 'react-router-dom';
 
 const Clients = props => {
     const [ currentPage, setCurrentPage ] = useState(1);
@@ -12,30 +13,46 @@ const Clients = props => {
         props.fetchClients();
     }, [])
     useEffect(() => {
-        const indexOfLastClients = currentPage * clientsPerPage;
-        const indexOfFirstClients = indexOfLastClients - clientsPerPage;
+        let clientsNumber = props.clients.length;
+        let indexOfLastClients = currentPage * clientsPerPage;
+        let indexOfFirstClients = indexOfLastClients - clientsPerPage;
         props.clients[0] && setCurrentClients(props.clients.slice(indexOfFirstClients, indexOfLastClients));
-        setPageNumbers([...Array(props.clients.length / clientsPerPage).keys()]);
+        let configurePageNumbers = clientsNumber > 1 ? [...Array(clientsNumber / clientsPerPage).keys()] : [1];
+        setPageNumbers(configurePageNumbers);
     }, [props.clients, currentPage])
     const handlePaginationClick = evt => {
-        setCurrentPage(Number(evt.target.id));
+        let id = evt.target.id;
+        switch(id){
+            case 'back':
+                return setCurrentPage(currentPage - 1);
+            case 'next':
+                return setCurrentPage(currentPage + 1);
+            default:
+                return setCurrentPage(Number(id))
+        }
     }
     return(
-        <div>
+        <div className="container">
             <span>All Clients</span>
+            <div className="pagination-buttons">
+                <span id="back" onClick={handlePaginationClick}> {"<"}- Back</span>
+                <span id="next" onClick={handlePaginationClick}>Next -></span>
+            </div>
             <Search />
-            <ul>
+            <ul className="client-list">
                 { currentClients[0] && currentClients.map(client => (
-                    <li>
-                        <img src={client.avatar} alt={client.name} />
-                        <p>{client.name}</p>
-                    </li>
+                    <Link to={`/client/${client.id}`}>
+                        <li className="client">
+                            <img src={client.avatar} alt={client.name} />
+                            <p>{client.name}</p>
+                        </li>
+                    </Link>
                 ))}
             </ul>
             <div className='pagination'>
-                { pageNumbers[1] && pageNumbers.map(number => (
-                    number === 0 ? '' : <span key={number} id={number} className={currentPage === number ? 'active' : ''} onClick={handlePaginationClick}>{number}</span>
-                )) }
+                { pageNumbers[1] && pageNumbers.map(number => {
+                    if(number) return <span key={number} id={number} className={currentPage === number ? 'active' : ''} onClick={handlePaginationClick}>{number}</span>
+                }) }
             </div>
         </div>
     )

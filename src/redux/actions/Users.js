@@ -16,7 +16,7 @@ export const logoutUser = user => ({
 export const loginUserUtil = user => dispatch => {
     axios.post('/api/v1/user/login', user)
     .then(({data})=>dispatch(loginUser(data)))
-    .catch(err=>dispatch(logError(err)))
+    .catch(err=>dispatch(logError({message: 'Email o contraseña incorrecta'})))
 }
 export const logoutUserUtil = () => dispatch => {
     axios.get('/api/v1/user/logout')

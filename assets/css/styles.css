@@ -53,7 +53,15 @@ body{
     float: right;
 }
 header{
-    padding: 15px 150px;
+    padding: 0 150px;
+    height: 75px;
+    background-color: #000000;
+}
+header .home {
+    font-size: 30px;
+    color: #a1a1a1;
+    margin-top: 17px;
+    display: inline-block;
 }
 header button{
     background-color: #e41b13;
@@ -66,9 +74,8 @@ header button{
     font-weight: 700;
     font-size: 15px;
     padding: 10px 25px;
+    margin-top: 17px;
 }
-
-
 .pagination {
     margin-top: 25px;
 }
@@ -79,11 +86,40 @@ header button{
   padding: 8px 16px;
   text-decoration: none;
   transition: background-color .3s;
-  border: 1px solid #ddd;
+  border: 1px solid #a1a1a1;
 }
 
 .pagination span.active {
   background-color: #0099FF;
   color: white;
   border: 1px solid #0099FF;
+}
+.container {
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 50px;
+}
+.container > span{
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: 30px;
+}
+.container .pagination-buttons {
+    display: inline-block;
+}
+.container .pagination-buttons span{
+    font-size: 20px;
+    border: 1px solid #000000;
+    padding: 5px;
+    margin-left: 30px;
+}
+.container .search-box{
+    float: right;
+}
+.client-list {
+    list-style: none;
+    column-count: 4;
+}
+.client-list .client{
+    text-align: center;
 }
